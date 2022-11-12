@@ -92,7 +92,7 @@ campsiteRouter.route('/:campsiteId/comments')
                 res.setHeader('Content-Type', 'application/json');
                 res.json(campsite.comments);
             } else {
-                err = new EvalError(`Campsite ${req.params.campsiteId} not found`);
+                err = new Error(`Campsite ${req.params.campsiteId} not found`);
                 err.status = 404;
                 return next(err);
             }
@@ -113,7 +113,7 @@ campsiteRouter.route('/:campsiteId/comments')
                 })
                 .catch(err => next(err));
             } else {
-                err = new EvalError(`Campsite ${req.params.campsiteId} not found`);
+                err = new Error(`Campsite ${req.params.campsiteId} not found`);
                 err.status = 404;
                 return next(err);
             }
@@ -141,7 +141,7 @@ campsiteRouter.route('/:campsiteId/comments')
                 })
                 .catch(err => next(err));
             } else {
-                err = new EvalError(`Campsite ${req.params.campsiteId} not found`);
+                err = new Error(`Campsite ${req.params.campsiteId} not found`);
                 err.status = 404;
                 return next(err);
             }
@@ -160,11 +160,11 @@ campsiteRouter.route('/:campsiteId/comments')
                 res.setHeader('Content-Type', 'application/json');
                 res.json(campsite.comments.id(req.params.commentId));
             } else if (!campsite) {
-                err = new EvalError(`Campsite ${req.params.campsiteId} not found`);
+                err = new Error(`Campsite ${req.params.campsiteId} not found`);
                 err.status = 404;
                 return next(err);
             } else {
-                err = new EvalError(`Comment ${req.params.commentId} not found`);
+                err = new Error(`Comment ${req.params.commentId} not found`);
                 err.status = 404;
                 return next(err);
             }
@@ -196,11 +196,11 @@ campsiteRouter.route('/:campsiteId/comments')
                 })
                 .catch(err => next(err)); 
             } else if (!campsite) {
-                err = new EvalError(`Campsite ${req.params.campsiteId} not found`);
+                err = new Error(`Campsite ${req.params.campsiteId} not found`);
                 err.status = 404;
                 return next(err);
             } else {
-                err = new EvalError(`Comment ${req.params.commentId} not found`);
+                err = new Error(`Comment ${req.params.commentId} not found`);
                 err.status = 404;
                 return next(err);
             }
@@ -221,11 +221,11 @@ campsiteRouter.route('/:campsiteId/comments')
                 })
                 .catch(err => next(err)); 
             } else if (!campsite) {
-                err = new EvalError(`Campsite ${req.params.campsiteId} not found`);
+                err = new Error(`Campsite ${req.params.campsiteId} not found`);
                 err.status = 404;
                 return next(err);
             } else {
-                err = new EvalError(`Comment ${req.params.commentId} not found`);
+                err = new Error(`Comment ${req.params.commentId} not found`);
                 err.status = 404;
                 return next(err);
             }
