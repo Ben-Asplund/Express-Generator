@@ -1,12 +1,17 @@
 const express = require('express');
 const User = require('../models/user');
 const passport = require('passport');
-const authenticate = require('../authenticate')
+const authenticate = require('../authenticate');
 const router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/',authenticate.verifyUser, authenticate.verifyAdmin, function(req, res, next) {
+  User.find()
+  .then((user) => {
+    res.status = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.json(user)
+  })
 });
 
 router.post('/signup', (req, res) => {
