@@ -185,7 +185,7 @@ campsiteRouter.route('/:campsiteId/comments')
         {req.params.commentId}`);
     })
 
-    .put(authenticate.verifyUser, authenticate.verifyAdmin, (req, res, next) => {
+    .put(authenticate.verifyUser,(req, res, next) => {
             Campsite.findById(req.params.campsiteId)
             .then(campsite => {
                 if (campsite.comments.id(req.params.commentId).author._id.equals(req.user._id)){
