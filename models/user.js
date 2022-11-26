@@ -15,9 +15,12 @@ const userSchema = new Schema({
     admin: {
         type: Boolean,
         default: false
+    },
+    facebookId: {
+        Type: String,
     }
 });
-
+    
 userSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('User', userSchema);
